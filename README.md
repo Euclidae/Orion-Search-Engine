@@ -115,13 +115,9 @@ Ensure Chrome/Firefox and hardware acceleration enabled.
 ---
 
 **🌌 Why "Orion"?**  
-Named after the hunter constellation, this project aims to help you track down information across the vastness of the web. Originally built during late-night coding sessions with too much coffee.  
-
-*Inspired by:*  
-- CS50’s introductory search engine project  
-- Classic cyberpunk aesthetics (Blade Runner, Neuromancer)  
-- Actual astronomy software interfaces  
-
+Named after the grand archer, Super Orion. I'd name it Gilgamesh, but that just sounds stupid, not gonna lie
+https://typemoon.fandom.com/wiki/Super_Orion
+https://typemoon.fandom.com/wiki/Gilgamesh
 ---
 
 **🌕 Final Note**  
