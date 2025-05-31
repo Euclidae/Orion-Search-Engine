@@ -128,3 +128,5 @@ This isn’t Google - it’s a learning tool that prioritizes transparency over 
 ---  
 Euclidae | 2024 | [GitHub](https://github.com/Euclidae)  
 *Built with Python, insomnia, and a fascination with space-age retro*
+
+*P.S. I borrowed the background from Jakoolit's Hyprland wallpapers. Bye.*
