@@ -1,7 +1,7 @@
 """
 - The PageRanker version... I lost count. Help.
 - Now with 100% more regret about career choices
-- If this breaks, light your computer on fire and blame SQLite
+- If this breaks, light your computer on fire and blame SQLite (MySQL is cooler. Seriously what do you mean CREATE DATABASE doesn't work? Bro???)
 - I am losing my sh**
 - Massive improvement over original pagerank.py. You should know how to look at commit history, clown. Leave me alone.
 """
@@ -17,10 +17,10 @@ from nltk import word_tokenize, download as nltk_download  # Fuck you very much,
 from nltk.corpus import stopwords  # Because "the" and "and" aren't useful, apparently
 from nltk.stem import WordNetLemmatizer  # Thanks ChatGPT for this line I don't understand
 from time import sleep  # For pretending we care about DB locks (seriously, I hate these)
-import nltk #jerry rigging this cuz of error
+import nltk #jerry rigging this cuz of error. interpreter error said so uhhh...
 
 # --------------------------
-# Configuration Bullshit
+# Configuration 
 # --------------------------
 CUSTOM_STOPWORDS = ['click', 'go', 'dream', 'mongrel']  # Don't ask about 'mongrel'
 DB_NAME = 'crawled_pages.db'  # Change this, whine that the search doesn't work and I'll find you
@@ -55,7 +55,7 @@ except LookupError:
 # Database Stuff (AKA Pain Simulator). Thanks to the ugly homie BoyTheTall for all his SQL nonesense code. Might have borrowed some... things
 # --------------------------
 def get_db_connection():
-    """Try to connect to DB without crying. Returns cursor or death."""
+    """Try to connect to DB without crying. Returns cursor or death. Thank god for no pointers"""
     attempts = 0
     while attempts < MAX_DB_RETRIES:
         try:
@@ -136,10 +136,10 @@ def calculate_pagerank():
 # Search Index (Where Hope Goes to Die)
 # --------------------------
 def build_search_index():
-    """Builds TF-IDF index because regex search is for peasants."""
+    """Builds TF-IDF index because regex search is for peasants - might as well let your cat roll on your keyboard, hey?"""
     print("\n=== Building Search Index ===")
     print("Initializing lemmatizer (thanks, ChatGPT)...")
-    lemmatizer = WordNetLemmatizer()  # Magic word un-bastardizer.
+    lemmatizer = WordNetLemmatizer()  # Magic word un-bastardizer. Pretty much returns words back their base state. tweaking -> tweak
     stop_words = set(stopwords.words('english')).union(CUSTOM_STOPWORDS)
 
     # Clear old index (goodbye, cruel data)
@@ -148,7 +148,7 @@ def build_search_index():
         cursor.execute("DELETE FROM page_index")  # Nuclear option
         print("Old index nuked. Freedom!")
 
-    # Get all documents (pray for memory)
+    # Get all documents (pray for memory. serious, watch how many pages you decide to insert into the spider.)
     with get_db_connection() as conn:
         cursor = conn.cursor()
         cursor.execute("SELECT COUNT(*) FROM pages")
@@ -181,7 +181,7 @@ def build_search_index():
         for word in tokens:
             word_counts[word] = word_counts.get(word, 0) + 1
 
-        # Update document counts (spying intensifies)
+        # Update document counts 
         for word in set(tokens):
             word_doc_counts[word] = word_doc_counts.get(word, 0) + 1
 

@@ -7,7 +7,7 @@ import concurrent.futures  # Added for multithreading
 #thank you to mr. pyGooner from discord (seriously, what's with that name) for helping mewith the back links thing
 from urllib.parse import urlparse, urljoin  # Added urljoin for resolving links
 
-def crawler(start_url, max_pages = 50):
+def crawler(start_url, max_pages = 1000):
     connection = sqlite3.connect('crawled_pages.db')
     cursor = connection.cursor()
     cursor.execute("DROP TABLE IF EXISTS pages")
@@ -86,7 +86,14 @@ seed_urls = [
              "https://manual.cs50.io/",
              "https://bbc.co.uk/news/topics/c4y26wwj72zt",
              "https://www.cnn.com",
-             "https://eldenring.fandom.com/wiki/Elden_Ring_Wiki"
+             "https://eldenring.fandom.com/wiki/Elden_Ring_Wiki",
+             "https://jamesclear.com/articles",
+             "https://www.nytimes.com/,"
+             "https://apnews.com/",
+             "https://www.nbcnews.com/",
+             "https://www.wired.com/tag/programming/",
+             "https://www.premierleague.com/c",
+             "https://africa.espn.com/"
              
 ]
 
